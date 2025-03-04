@@ -1,7 +1,10 @@
 package com.example.gmh_app;
 
+import static android.content.ContentValues.TAG;
+
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -39,8 +42,15 @@ public class AfterVideo15Activity extends AppCompatActivity {
 
         setContentView(R.layout.activity_after_video15);
 
+        // Enable Firebase offline persistence
+        FirebaseDatabase.getInstance().setPersistenceEnabled(true);
+
         // Initialize Firebase Database reference
-        databaseReference = FirebaseDatabase.getInstance().getReference("FeedbackVideo15");
+        databaseReference = FirebaseDatabase.getInstance().getReference("Feedback After Video 1");
+        databaseReference.keepSynced(true); // Ensures local data is synced when online
+
+        // Debugging: Log Firebase Database path
+        Log.d(TAG, "Firebase Database Path: " + databaseReference);
 
         // Link UI elements to their corresponding views
         ratingVideo = findViewById(R.id.rating_video);

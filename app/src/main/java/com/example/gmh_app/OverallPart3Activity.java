@@ -1,7 +1,10 @@
 package com.example.gmh_app;
 
+import static android.content.ContentValues.TAG;
+
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -37,8 +40,15 @@ public class OverallPart3Activity extends AppCompatActivity {
 
         setContentView(R.layout.activity_overall_part3);
 
+        // Enable Firebase offline persistence
+        FirebaseDatabase.getInstance().setPersistenceEnabled(true);
+
         // Initialize Firebase Database reference
-        databaseReference = FirebaseDatabase.getInstance().getReference("user_responses_part3");
+        databaseReference = FirebaseDatabase.getInstance().getReference("Part 3 Assessment Response");
+        databaseReference.keepSynced(true); // Ensures local data is synced when online
+
+        // Debugging: Log Firebase Database path
+        Log.d(TAG, "Firebase Database Path: " + databaseReference);
 
         // Initialize views
         changesMadeGroup = findViewById(R.id.changes_made_group);

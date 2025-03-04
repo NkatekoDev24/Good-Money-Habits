@@ -43,8 +43,15 @@ public class MoneyInflowsActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_money_inflows);
 
+        // Enable Firebase offline persistence
+        FirebaseDatabase.getInstance().setPersistenceEnabled(true);
+
         // Initialize Firebase Database reference
-        databaseReference = FirebaseDatabase.getInstance().getReference("MoneyInflows");
+        databaseReference = FirebaseDatabase.getInstance().getReference("Before Video 9 Response");
+        databaseReference.keepSynced(true); // Ensures local data is synced when online
+
+        // Debugging: Log Firebase Database path
+        Log.d(TAG, "Firebase Database Path: " + databaseReference);
 
         // Initialize UI Components
         businessDurationGroup = findViewById(R.id.business_duration_group);

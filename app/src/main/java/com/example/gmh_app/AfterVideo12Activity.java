@@ -44,8 +44,15 @@ public class AfterVideo12Activity extends AppCompatActivity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_after_video12);
 
-        // Initialize Firebase
-        databaseReference = FirebaseDatabase.getInstance().getReference("Feedback/Video12");
+        // Enable Firebase offline persistence
+        FirebaseDatabase.getInstance().setPersistenceEnabled(true);
+
+        // Initialize Firebase Database reference
+        databaseReference = FirebaseDatabase.getInstance().getReference("Feedback After Video 12");
+        databaseReference.keepSynced(true); // Ensures local data is synced when online
+
+        // Debugging: Log Firebase Database path
+        Log.d(TAG, "Firebase Database Path: " + databaseReference);
 
         // Initialize UI components
         ratingVideo = findViewById(R.id.rating_video);

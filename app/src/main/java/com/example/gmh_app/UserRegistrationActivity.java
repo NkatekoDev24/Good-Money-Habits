@@ -1,9 +1,12 @@
 package com.example.gmh_app;
 
+import static android.content.ContentValues.TAG;
+
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.text.Html;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -45,8 +48,15 @@ public class UserRegistrationActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_user_registration);
 
-        // Initialize Firebase Database
-        databaseReference = FirebaseDatabase.getInstance().getReference("users");
+        // Enable Firebase offline persistence
+        FirebaseDatabase.getInstance().setPersistenceEnabled(true);
+
+        // Initialize Firebase Database reference
+        databaseReference = FirebaseDatabase.getInstance().getReference("Users");
+        databaseReference.keepSynced(true); // Ensures local data is synced when online
+
+        // Debugging: Log Firebase Database path
+        Log.d(TAG, "Firebase Database Path: " + databaseReference);
 
         // Initialize views
         etUsername = findViewById(R.id.etUsername);

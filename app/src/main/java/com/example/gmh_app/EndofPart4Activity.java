@@ -18,9 +18,6 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class EndofPart4Activity extends AppCompatActivity {
 
-    private RadioGroup recommendationGroup;
-    private RadioButton rbYes, rbNo;
-    private EditText etTopics;
     private Button btnContinue;
 
     @Override
@@ -35,9 +32,6 @@ public class EndofPart4Activity extends AppCompatActivity {
         setContentView(R.layout.activity_endof_part4);
 
         // Initialize UI elements
-//        rbYes = findViewById(R.id.rbYes);
-//        rbNo = findViewById(R.id.rbNo);
-        etTopics = findViewById(R.id.etTopics);
         btnContinue = findViewById(R.id.btnContinue);
 
         // Set button click listener

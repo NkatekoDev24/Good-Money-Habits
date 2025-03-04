@@ -48,8 +48,15 @@ public class AfterVideo8Activity extends AppCompatActivity {
         // Set the layout
         setContentView(R.layout.activity_after_video8);
 
+        // Enable Firebase offline persistence
+        FirebaseDatabase.getInstance().setPersistenceEnabled(true);
+
         // Initialize Firebase Database reference
-        databaseReference = FirebaseDatabase.getInstance().getReference("Feedback/Video8");
+        databaseReference = FirebaseDatabase.getInstance().getReference("Feedback After Video 8");
+        databaseReference.keepSynced(true); // Ensures local data is synced when online
+
+        // Debugging: Log Firebase Database path
+        Log.d(TAG, "Firebase Database Path: " + databaseReference);
 
         // Initialize UI components
         ratingVideo = findViewById(R.id.rating_overall);

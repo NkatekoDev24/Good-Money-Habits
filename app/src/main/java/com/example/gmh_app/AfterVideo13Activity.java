@@ -37,8 +37,15 @@ public class AfterVideo13Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_after_video13);
 
+        // Enable Firebase offline persistence
+        FirebaseDatabase.getInstance().setPersistenceEnabled(true);
+
         // Initialize Firebase Database reference
-        databaseReference = FirebaseDatabase.getInstance().getReference("Feedback/Video13");
+        databaseReference = FirebaseDatabase.getInstance().getReference("Feedback After Video 13");
+        databaseReference.keepSynced(true); // Ensures local data is synced when online
+
+        // Debugging: Log Firebase Database path
+        Log.d(TAG, "Firebase Database Path: " + databaseReference);
 
         // Link UI elements to their corresponding views
         ratingBarVideo = findViewById(R.id.ratingBarVideo);

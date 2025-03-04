@@ -1,7 +1,10 @@
 package com.example.gmh_app;
 
+import static android.content.ContentValues.TAG;
+
 import android.os.Bundle;
 import android.text.Html;
+import android.util.Log;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -40,8 +43,15 @@ public class BeforeVideo14Activity extends AppCompatActivity {
 
         setContentView(R.layout.activity_before_video14);
 
-        // Initialize Firebase Database
-        databaseReference = FirebaseDatabase.getInstance().getReference("CreditRiskData");
+        // Enable Firebase offline persistence
+        FirebaseDatabase.getInstance().setPersistenceEnabled(true);
+
+        // Initialize Firebase Database reference
+        databaseReference = FirebaseDatabase.getInstance().getReference("Before Video 14 Response");
+        databaseReference.keepSynced(true); // Ensures local data is synced when online
+
+        // Debugging: Log Firebase Database path
+        Log.d(TAG, "Firebase Database Path: " + databaseReference);
 
         // Initialize UI components
         pastProfitCalculationGroup = findViewById(R.id.calcProfitGroup);

@@ -44,8 +44,15 @@ public class CountingMoneyInflows extends AppCompatActivity {
 
         setContentView(R.layout.activity_counting_money_inflows);
 
+        // Enable Firebase offline persistence
+        FirebaseDatabase.getInstance().setPersistenceEnabled(true);
+
         // Initialize Firebase Database reference
-        databaseReference = FirebaseDatabase.getInstance().getReference("CountingMoneyInflows");
+        databaseReference = FirebaseDatabase.getInstance().getReference("Before Video 6 Response");
+        databaseReference.keepSynced(true); // Ensures local data is synced when online
+
+        // Debugging: Log Firebase Database path
+        Log.d(TAG, "Firebase Database Path: " + databaseReference);
 
         // Initialize UI Components
         personalBankAccountGroup = findViewById(R.id.personal_bank_account_group);

@@ -40,7 +40,15 @@ public class AfterVideo11Activity extends AppCompatActivity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_after_video11);
 
-        databaseReference = FirebaseDatabase.getInstance().getReference("Feedback/Video11");
+        // Enable Firebase offline persistence
+        FirebaseDatabase.getInstance().setPersistenceEnabled(true);
+
+        // Initialize Firebase Database reference
+        databaseReference = FirebaseDatabase.getInstance().getReference("Feedback After Video 11");
+        databaseReference.keepSynced(true); // Ensures local data is synced when online
+
+        // Debugging: Log Firebase Database path
+        Log.d(TAG, "Firebase Database Path: " + databaseReference);
 
         ratingVideo = findViewById(R.id.rating_video);
         ratingClarity = findViewById(R.id.rating_clarity);

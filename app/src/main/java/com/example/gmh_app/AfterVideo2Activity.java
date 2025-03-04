@@ -42,8 +42,15 @@ public class AfterVideo2Activity extends AppCompatActivity {
 
         setContentView(R.layout.activity_after_video2);
 
+        // Enable Firebase offline persistence
+        FirebaseDatabase.getInstance().setPersistenceEnabled(true);
+
         // Initialize Firebase Database reference
-        databaseReference = FirebaseDatabase.getInstance().getReference("Feedback/Video2");
+        databaseReference = FirebaseDatabase.getInstance().getReference("Feedback After Video 2");
+        databaseReference.keepSynced(true); // Ensures local data is synced when online
+
+        // Debugging: Log Firebase Database path
+        Log.d(TAG, "Firebase Database Path: " + databaseReference);
 
         // Initialize UI components
         ratingOverall = findViewById(R.id.rating_overall);

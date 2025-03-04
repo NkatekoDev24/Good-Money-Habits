@@ -1,7 +1,10 @@
 package com.example.gmh_app;
 
+import static android.content.ContentValues.TAG;
+
 import android.os.Bundle;
 import android.text.Html;
+import android.util.Log;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -36,8 +39,15 @@ public class BeforeVideo11Activity extends AppCompatActivity {
 
         setContentView(R.layout.activity_before_video11);
 
-        // Initialize Firebase
-        databaseReference = FirebaseDatabase.getInstance().getReference("BeforeVideo11Responses");
+        // Enable Firebase offline persistence
+        FirebaseDatabase.getInstance().setPersistenceEnabled(true);
+
+        // Initialize Firebase Database reference
+        databaseReference = FirebaseDatabase.getInstance().getReference("Before Video 11 Response");
+        databaseReference.keepSynced(true); // Ensures local data is synced when online
+
+        // Debugging: Log Firebase Database path
+        Log.d(TAG, "Firebase Database Path: " + databaseReference);
 
         // Initialize views
         radioGroupRent = findViewById(R.id.radioGroupRent);

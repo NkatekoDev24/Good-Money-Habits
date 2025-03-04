@@ -43,8 +43,15 @@ public class BusinessPracticesActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_business_practices);
 
+        // Enable Firebase offline persistence
+        FirebaseDatabase.getInstance().setPersistenceEnabled(true);
+
         // Initialize Firebase Database reference
-        databaseReference = FirebaseDatabase.getInstance().getReference("BusinessPractices");
+        databaseReference = FirebaseDatabase.getInstance().getReference("Before Video 4 Response");
+        databaseReference.keepSynced(true); // Ensures local data is synced when online
+
+        // Debugging: Log Firebase Database path
+        Log.d(TAG, "Firebase Database Path: " + databaseReference);
 
         // Initialize UI components
         rgSeparateFinances = findViewById(R.id.rgSeparateFinances);

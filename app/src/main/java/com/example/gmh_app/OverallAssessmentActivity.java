@@ -41,8 +41,15 @@ public class OverallAssessmentActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_overall_assessment);
 
+        /// Enable Firebase offline persistence
+        FirebaseDatabase.getInstance().setPersistenceEnabled(true);
+
         // Initialize Firebase Database reference
-        databaseReference = FirebaseDatabase.getInstance().getReference("OverallAssessment");
+        databaseReference = FirebaseDatabase.getInstance().getReference("Overall Assessment Response");
+        databaseReference.keepSynced(true); // Ensures local data is synced when online
+
+        // Debugging: Log Firebase Database path
+        Log.d(TAG, "Firebase Database Path: " + databaseReference);
 
         // Initialize UI components
         videosWatched = findViewById(R.id.videos_watched);

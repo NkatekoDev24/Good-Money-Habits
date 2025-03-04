@@ -46,8 +46,15 @@ public class BusinessDetailsActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_business_details);
 
+        // Enable Firebase offline persistence
+        FirebaseDatabase.getInstance().setPersistenceEnabled(true);
+
         // Initialize Firebase Database reference
-        databaseReference = FirebaseDatabase.getInstance().getReference("BusinessDetails");
+        databaseReference = FirebaseDatabase.getInstance().getReference("Before Video 3 Response");
+        databaseReference.keepSynced(true); // Ensures local data is synced when online
+
+        // Debugging: Log Firebase Database path
+        Log.d(TAG, "Firebase Database Path: " + databaseReference);
 
         // Initialize UI components
         rgRole = findViewById(R.id.rgRole);
