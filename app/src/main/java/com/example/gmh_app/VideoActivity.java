@@ -15,18 +15,17 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.gmh_app.Adapter.VideoAdapter;
 import com.example.gmh_app.Models.VideoModel;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class VideoActivity extends AppCompatActivity {
     private RecyclerView videoRecyclerView;
     private VideoAdapter videoAdapter;
     private List<VideoModel> videoList;
-    private List<Boolean> isViewed;
     private int currentVideoIndex = 0;
     private SharedPreferences sharedPreferences;
 
     private static final String PREFS_NAME = "VideoProgressPrefs";
+    private static final String SECTION_COMPLETION_PREFS = "VideoCompletionPrefs";
     private String sectionKey;
 
     private static final String TAG = "VideoActivity";
@@ -39,7 +38,6 @@ public class VideoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_video);
 
         sharedPreferences = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
-
         videoRecyclerView = findViewById(R.id.videoRecyclerView);
         videoRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
@@ -47,36 +45,49 @@ public class VideoActivity extends AppCompatActivity {
         sectionKey = getIntent().getStringExtra("section_key");
 
         if (videoList == null || videoList.isEmpty()) {
-            videoList = new ArrayList<>();
             Toast.makeText(this, "No videos available to display.", Toast.LENGTH_SHORT).show();
             Log.e(TAG, "Video list from intent is null or empty.");
+            return;
         }
 
-        // Initialize isViewed list
-        isViewed = new ArrayList<>();
-        for (int i = 0; i < videoList.size(); i++) {
-            isViewed.add(false);
-        }
+        // Check if section was completed
+        SharedPreferences completionPrefs = getSharedPreferences(SECTION_COMPLETION_PREFS, MODE_PRIVATE);
+        boolean sectionCompleted = completionPrefs.getBoolean(sectionKey, false);
 
-        // Restore last watched index for the section
-        currentVideoIndex = sharedPreferences.getInt(sectionKey, 0);
-        if (currentVideoIndex >= videoList.size()) {
+        if (sectionCompleted) {
+            // Reset index to show all videos from the beginning when revisiting a completed section
             currentVideoIndex = 0;
+        } else {
+            // Resume from last watched video
+            currentVideoIndex = sharedPreferences.getInt(sectionKey, 0);
         }
 
         videoAdapter = new VideoAdapter(this, videoList, position -> {
             currentVideoIndex = position;
             playNextVideo();
         });
-        videoRecyclerView.setAdapter(videoAdapter);
 
+        videoRecyclerView.setAdapter(videoAdapter);
         videoRecyclerView.scrollToPosition(currentVideoIndex);
-        playNextVideo();
+
+        if (!sectionCompleted) {
+            // Resume from the last watched video
+            currentVideoIndex = sharedPreferences.getInt(sectionKey, 0);
+            videoRecyclerView.scrollToPosition(currentVideoIndex);
+            playNextVideo();  // Start autoplay when section is first visited
+        } else {
+            // Show video list when revisiting a completed section without autoplay
+            currentVideoIndex = 0;
+            videoRecyclerView.scrollToPosition(currentVideoIndex);
+        }
+
+
     }
 
     private void playNextVideo() {
         if (currentVideoIndex >= videoList.size()) {
-            Toast.makeText(this, "All videos have been completed.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "All videos completed.", Toast.LENGTH_SHORT).show();
+            markSectionAsCompleted();
             return;
         }
 
@@ -88,12 +99,15 @@ public class VideoActivity extends AppCompatActivity {
             openVideoPlaybackActivity(currentVideo);
         }
 
-        isViewed.set(currentVideoIndex, true);
-
         // Save progress in SharedPreferences
         sharedPreferences.edit().putInt(sectionKey, currentVideoIndex).apply();
 
         videoAdapter.notifyDataSetChanged();
+    }
+
+    private void markSectionAsCompleted() {
+        SharedPreferences completionPrefs = getSharedPreferences(SECTION_COMPLETION_PREFS, MODE_PRIVATE);
+        completionPrefs.edit().putBoolean(sectionKey, true).apply();
     }
 
     private void openVideoPlaybackActivity(VideoModel video) {
