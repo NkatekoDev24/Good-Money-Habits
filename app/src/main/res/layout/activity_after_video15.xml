@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!-- Top Navigation Toolbar -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:paddingEnd="10dp"
+        android:background="@color/white"
+        android:elevation="4dp"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:title="Back to Video 15"
+        app:navigationIcon="@drawable/ic_arrow_back_24"
+        app:titleTextColor="@color/black"
+        app:titleTextAppearance="@style/TextAppearance.AppCompat.Large"
+        app:menu="@menu/toolbar_menu"/>
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:padding="16dp"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+<!--        <ImageButton-->
+<!--            android:id="@+id/btn_back"-->
+<!--            android:layout_width="40dp"-->
+<!--            android:layout_height="40dp"-->
+<!--            android:background="@android:color/transparent"-->
+<!--            android:src="@drawable/ic_arrow_back_24"-->
+<!--            android:contentDescription="Back" />-->
+
+        <!-- FEEDBACK BREAK Title -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="FEEDBACK BREAK (Video 15)"
+            android:textSize="24sp"
+            android:textAllCaps="true"
+            android:fontFamily="@font/calibri_regular"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:layout_marginBottom="16dp"/>
+
+    <!-- Video Rating section -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="What do you think of this video? Please rate it by indicating the number of stars. "
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:fontFamily="@font/calibri_regular"
+        android:textColor="@color/black"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1 star means: Very bad\n5 stars mean: Very good"
+            android:textSize="16sp"
+            android:textStyle="italic"
+            android:textColor="@color/black"
+            android:fontFamily="@font/calibri_regular" />
+
+    <RatingBar
+        android:id="@+id/rating_video"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:progressTint="#FFD700"
+        android:numStars="5"
+        android:stepSize="1.0"
+        android:rating="0.0" />
+
+    <!-- Clarity Rating section -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="How clear was the information?"
+        android:textSize="20sp"
+        android:fontFamily="@font/calibri_regular"
+        android:textColor="@color/black"/>
+    <RatingBar
+        android:id="@+id/rating_clarity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:progressTint="#FFD700"
+        android:numStars="5"
+        android:stepSize="1.0"
+        android:rating="0.0" />
+
+    <!-- Usefulness Rating section -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="How useful was the information?"
+        android:textSize="20sp"
+        android:fontFamily="@font/calibri_regular"
+        android:textColor="@color/black"/>
+
+        <RatingBar
+            android:id="@+id/rating_usefulness"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:numStars="5"
+            android:progressTint="#FFD700"
+            android:rating="0.0"
+            android:stepSize="1.0" />
+
+    <!-- Lesson learned section -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="What is the biggest lesson from this video?"
+        android:textSize="20sp"
+        android:fontFamily="@font/calibri_regular"
+        android:textColor="@color/black"/>
+    <EditText
+        android:id="@+id/et_lesson"
+        android:layout_width="match_parent"
+        android:background="@drawable/dotted_underline"
+        android:minHeight="40dp"
+        android:layout_marginBottom="16dp"
+        android:hint="What is the biggest lesson from this video?"
+        android:layout_height="wrap_content" />
+
+    <!-- Ability to draw Income Statement section -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Do you think you will be able to draw up a complete Income Statement – all money inflows and outflows (with corrections and adjustments) and then your profit – as in the last example? (This can be for either a month or a year.)"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/calibri_regular"
+            android:textColor="@color/black" />
+
+        <RadioGroup
+            android:id="@+id/rg_income_statement_ability"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RadioButton
+                android:id="@+id/rb_not_at_all"
+                android:text="Not at all"
+                android:fontFamily="@font/calibri_regular"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <RadioButton
+                android:id="@+id/rb_to_some_extent"
+                android:text="To some extent"
+                android:fontFamily="@font/calibri_regular"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <RadioButton
+                android:id="@+id/rb_to_large_extent"
+                android:text="To a large extent"
+                android:fontFamily="@font/calibri_regular"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <RadioButton
+                android:id="@+id/rb_definitely"
+                android:text="Definitely"
+                android:fontFamily="@font/calibri_regular"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </RadioGroup>
+
+    <!-- Existing Income Statement section -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Have you in the past, before watching these videos. drawn up an Income Statement for your business?"
+        android:textSize="20sp"
+        android:fontFamily="@font/calibri_regular"
+        android:textColor="@color/black"/>
+    <RadioGroup
+        android:id="@+id/rg_existing_income_statement"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <RadioButton
+            android:id="@+id/rb_existing_income_statement_yes"
+            android:text="Yes"
+            android:fontFamily="@font/calibri_regular"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <RadioButton
+            android:id="@+id/rb_existing_income_statement_no"
+            android:text="No"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:fontFamily="@font/calibri_regular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RadioGroup>
+
+        <!-- Existing Income Statement section -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Have you recently, after watching the GMH videos, drawn up an Income Statement for your business?"
+            android:textSize="20sp"
+            android:fontFamily="@font/calibri_regular"
+            android:textColor="@color/black"/>
+        <RadioGroup
+            android:id="@+id/rg_recent_income_statement"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <RadioButton
+                android:id="@+id/rb_recent_income_statement_yes"
+                android:text="Yes"
+                android:fontFamily="@font/calibri_regular"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <RadioButton
+                android:id="@+id/rb_recent_income_statement_no"
+                android:text="No"
+                android:fontFamily="@font/calibri_regular"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </RadioGroup>
+
+    <!-- Realization about Income Statement section -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Do you feel that an Income Statement will enable you to talk to a bank manager about, for example, a business loan? "
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:fontFamily="@font/calibri_regular"/>
+    <RadioGroup
+        android:id="@+id/rg_realization_income_statement"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <RadioButton
+            android:id="@+id/rb_realization_income_statement_yes"
+            android:text="Yes"
+            android:textSize="20sp"
+            android:fontFamily="@font/calibri_regular"
+            android:textColor="@color/black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <RadioButton
+            android:id="@+id/rb_realization_income_statement_no"
+            android:text="No"
+            android:fontFamily="@font/calibri_regular"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RadioGroup>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="📌 Remember to answer all these questions, so that you can be rewarded with an Achievement Shield at the end of Part 4."
+            android:textSize="20sp"
+            android:fontFamily="@font/calibri_regular"
+            android:textColor="@color/black"
+            android:textStyle="italic"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"/>
+
+    <!-- Comments section -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Any comments, problems or suggestions regarding this last video?"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/calibri_regular"/>
+    <EditText
+        android:id="@+id/et_comments"
+        android:layout_width="match_parent"
+        android:background="@drawable/dotted_underline"
+        android:minHeight="40dp"
+        android:layout_height="wrap_content"
+        android:hint="Any comments, problems or suggestions regarding this last video?"
+        android:layout_marginBottom="8dp"/>
+
+    <!-- Submit button -->
+        <Button
+            android:id="@+id/btn_submit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Submit"
+            android:backgroundTint="@color/signup_button_default_color"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="16dp" />
+</LinearLayout>
+</ScrollView>
+</LinearLayout>

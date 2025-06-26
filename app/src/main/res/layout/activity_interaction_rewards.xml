@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:paddingTop="24dp"
+        android:paddingBottom="24dp">
+
+        <!-- Title -->
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="INTERACTIONS AND REWARDS"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimary"
+            android:fontFamily="@font/calibri_regular"
+            android:gravity="center"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Description Texts -->
+        <TextView
+            android:id="@+id/descriptionText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:lineSpacingExtra="4dp"
+            android:text="To make this learning process stimulating, you will be asked to interact with the videos. Before and after each video you will find questions and opportunities to express your opinion."
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:fontFamily="@font/calibri_regular" />
+
+        <TextView
+            android:id="@+id/descriptionText2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:lineSpacingExtra="4dp"
+            android:text="These interactive questions are important to you (and to us). There also are elements of reward and achievement."
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:fontFamily="@font/calibri_regular" />
+
+        <!-- Rewards Section -->
+        <TextView
+            android:id="@+id/rewardsCaption"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Rewards"
+            android:textStyle="bold"
+            android:textSize="22sp"
+            android:textColor="@android:color/holo_red_dark"
+            android:fontFamily="@font/calibri_regular"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:lineSpacingExtra="4dp"
+            android:text="If you watch all the videos, answer all the questions and give responses when asked, you will earn beautiful GMH Achievement Shields."
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:fontFamily="@font/calibri_regular" />
+
+        <TextView
+            android:id="@+id/description1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:lineSpacingExtra="4dp"
+            android:text="The Shields have four levels, one for each of the four Parts. The final one is a superb Gold Shield."
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:fontFamily="@font/calibri_regular" />
+
+        <!-- Shield Images -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:layout_marginBottom="16dp">
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginEnd="8dp"
+                android:src="@drawable/picture1"
+                android:contentDescription="Shield 1"
+                android:scaleType="fitCenter" />
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginEnd="8dp"
+                android:src="@drawable/picture2"
+                android:contentDescription="Shield 2"
+                android:scaleType="fitCenter" />
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginEnd="8dp"
+                android:src="@drawable/picture3"
+                android:contentDescription="Shield 3"
+                android:scaleType="fitCenter" />
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/picture4"
+                android:contentDescription="Shield 4"
+                android:scaleType="fitCenter" />
+        </LinearLayout>
+
+        <!-- Shield Explanation and Rewards -->
+        <TextView
+            android:id="@+id/intro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Attaching the Shields to the Front of the Business will ‘protect’ your virtual Business and its Money Box."
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/calibri_regular"
+            android:layout_marginBottom="16dp"
+            android:lineSpacingExtra="4dp" />
+
+        <ImageView
+            android:id="@+id/rewardsImage"
+            android:layout_width="wrap_content"
+            android:layout_height="300dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="16dp"
+            android:src="@drawable/rewards2"
+            android:scaleType="fitCenter"
+            android:contentDescription="Rewards Image" />
+
+        <!-- Reward Labels -->
+        <TextView
+            android:id="@+id/rewardsDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Earn all these shields"
+            android:textColor="@android:color/holo_red_dark"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/calibri_regular"
+            android:gravity="center"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:id="@+id/golddescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Go for GOLD!"
+            android:textColor="@android:color/holo_red_dark"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/calibri_regular"
+            android:gravity="center"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Bonus -->
+        <TextView
+            android:id="@+id/bonusTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/calibri_regular"
+            android:gravity="center"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Button -->
+        <Button
+            android:id="@+id/startVideosButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Next"
+            android:textColor="@android:color/white"
+            android:padding="16dp"
+            android:layout_marginTop="24dp"
+            android:layout_gravity="center"
+            android:backgroundTint="@color/signup_button_default_color" />
+
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!-- Top Navigation Toolbar -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:paddingEnd="10dp"
+        android:background="@color/white"
+        android:elevation="4dp"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:title="Back to Video 12"
+        app:navigationIcon="@drawable/ic_arrow_back_24"
+        app:titleTextColor="@color/black"
+        app:titleTextAppearance="@style/TextAppearance.AppCompat.Large"
+        app:menu="@menu/toolbar_menu"/>
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/white">
+
+        <!-- FEEDBACK BREAK Title -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="FEEDBACK BREAK (Video 12)"
+            android:textSize="24sp"
+            android:textAllCaps="true"
+            android:fontFamily="@font/calibri_regular"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Video Rating -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="How was this video? Please rate it by indicating the number of stars. Remember:"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:fontFamily="@font/calibri_regular"
+            android:textColor="@color/black" />
+
+        <!-- Explanation for Rating -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="1 star means: Not at all / I didn’t like it at all\n5 stars mean: A lot / I liked it very much"
+            android:textSize="16sp"
+            android:textStyle="italic"
+            android:fontFamily="@font/calibri_regular"
+            android:textColor="@color/black"/>
+
+        <RatingBar
+            android:id="@+id/rating_video"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:progressTint="#FFD700"
+            android:numStars="5"
+            android:stepSize="1.0"
+            android:rating="0.0" />
+
+        <!-- Clarity Rating -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="How clear was the information?"
+            android:textSize="20sp"
+            android:fontFamily="@font/calibri_regular"
+            android:textColor="@color/black" />
+        <RatingBar
+            android:id="@+id/rating_clarity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:progressTint="#FFD700"
+            android:numStars="5"
+            android:stepSize="1.0"
+            android:rating="0.0" />
+
+        <!-- Usefulness Rating -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="How useful was the information?"
+            android:textSize="20sp"
+            android:fontFamily="@font/calibri_regular"
+            android:textColor="@color/black" />
+        <RatingBar
+            android:id="@+id/rating_usefulness"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:progressTint="#FFD700"
+            android:numStars="5"
+            android:stepSize="1.0"
+            android:rating="0.0" />
+
+        <!-- Biggest Lesson Learned -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="What is the biggest lesson you learned from this video?"
+            android:textSize="20sp"
+            android:fontFamily="@font/calibri_regular"
+            android:textColor="@color/black" />
+        <EditText
+            android:id="@+id/lesson_learned"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/dotted_underline"
+            android:minHeight="40dp"
+            android:layout_marginBottom="16dp"
+            android:hint="What is the biggest lesson you learned from this video?" />
+
+        <!-- Changes in Profits -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Do you plan to make any changes in what you do with your profits?"
+            android:fontFamily="@font/calibri_regular"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/black" />
+        <RadioGroup
+            android:id="@+id/profit_changes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <RadioButton
+                android:id="@+id/profit_changes_yes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Yes"
+                android:textSize="20sp"
+                android:fontFamily="@font/calibri_regular"
+                android:textColor="@color/black" />
+            <RadioButton
+                android:id="@+id/profit_changes_no"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="No"
+                android:fontFamily="@font/calibri_regular"
+                android:textSize="20sp"
+                android:textColor="@color/black" />
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/text_changes_explained"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="If yes: what changes do you want to make? Explain briefly."
+            android:fontFamily="@font/calibri_regular"
+            android:textSize="20sp"
+            android:textColor="@color/black" />
+        <EditText
+            android:id="@+id/changes_explanation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/dotted_underline"
+            android:minHeight="40dp"
+            android:layout_marginBottom="16dp"
+            android:hint="If yes: what changes do you want to make? Explain briefly." />
+
+        <!-- Profit Levels -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Regarding your profit levels:"
+            android:fontFamily="@font/calibri_regular"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/black" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="If you calculate your profit NOW, after watching the various videos, do you expect it to be different from the amount you calculated before watching the videos?"
+            android:textSize="20sp"
+            android:fontFamily="@font/calibri_regular"
+            android:textColor="@color/black" />
+        <RadioGroup
+            android:id="@+id/profit_difference"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <RadioButton
+                android:id="@+id/profit_difference_yes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Yes"
+                android:fontFamily="@font/calibri_regular"
+                android:textSize="20sp"
+                android:textColor="@color/black" />
+            <RadioButton
+                android:id="@+id/profit_difference_no"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="No"
+                android:fontFamily="@font/calibri_regular"
+                android:textSize="20sp"
+                android:textColor="@color/black" />
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/txtIfYes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="If YES: What amount do you think your profit per month will come to, approximately?"
+            android:textSize="20sp"
+            android:fontFamily="@font/calibri_regular"
+            android:textColor="@color/black" />
+        <EditText
+            android:id="@+id/profit_amount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/dotted_underline"
+            android:minHeight="40dp"
+            android:inputType="numberDecimal"
+            android:hint="What amount do you think your profit per month will come to, approximately?\n (Enter Rand amount)"
+            android:layout_marginBottom="16dp"/>
+
+<!--        <TextView-->
+<!--            android:id="@+id/reminder_next_video"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="📌 It’s important to write this down BEFORE you go on to the next video."-->
+<!--            android:textSize="16sp"-->
+<!--            android:fontFamily="@font/calibri_regular"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:textStyle="italic"-->
+<!--            android:layout_marginBottom="16dp"/>-->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Do you have more confidence now to calculate your profit accurately?"
+            android:textSize="20sp"
+            android:fontFamily="@font/calibri_regular"
+            android:textColor="@color/black" />
+        <RadioGroup
+            android:id="@+id/profit_confidence"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <RadioButton
+                android:id="@+id/profit_confidence_yes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Yes"
+                android:textSize="20sp"
+                android:fontFamily="@font/calibri_regular"
+                android:textColor="@color/black" />
+            <RadioButton
+                android:id="@+id/profit_confidence_no"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="No"
+                android:textSize="20sp"
+                android:fontFamily="@font/calibri_regular"
+                android:textColor="@color/black" />
+        </RadioGroup>
+
+        <!-- Additional Comments -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Any comments, problems or suggestions on this video?"
+            android:textSize="20sp"
+            android:fontFamily="@font/calibri_regular"
+            android:textColor="@color/black" />
+        <EditText
+            android:id="@+id/additional_comments"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/dotted_underline"
+            android:minHeight="40dp"
+            android:hint="Any comments, problems or suggestions on this video?" />
+
+        <!-- Submit Button -->
+        <Button
+            android:id="@+id/submit_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Let's go on to video 13"
+            android:backgroundTint="@color/signup_button_default_color"
+            android:layout_gravity="center_horizontal"/>
+
+    </LinearLayout>
+</ScrollView>
+</LinearLayout>
